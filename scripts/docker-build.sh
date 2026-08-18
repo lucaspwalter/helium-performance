@@ -15,11 +15,19 @@ fi
 
 if [ -z "${_use_existing_image:-}" ]; then
     echo "building docker image '${_image}'"
-    cd "${_base_dir}/docker" && \
+    cd "${_base_dir}/docker"
+    if docker buildx version >/dev/null 2>&1; then
         docker buildx build --load \
             -t "${_image}" \
             -f ./build.Dockerfile \
             "${_docker_image_args[@]}" .
+    else
+        echo "Docker Buildx ausente; usando docker build"
+        docker build \
+            -t "${_image}" \
+            -f ./build.Dockerfile \
+            "${_docker_image_args[@]}" .
+    fi
 else
     echo "using existing docker image '${_image}'"
 fi
