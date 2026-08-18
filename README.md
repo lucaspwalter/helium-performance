@@ -76,10 +76,10 @@ licensed under their [BSD 3-Clause license](LICENSE.ungoogled_chromium)).
 ## Building
 To build the binary, run `scripts/docker-build.sh` from the repo root.
 
-For the performance build, use `scripts/docker-build.sh --performance`. This
-uses a Chromium PGO profile and a stripped symbol table. It targets x86_64;
-the first build downloads Chromium sources and can require substantial disk
-space and time.
+For the maximum-performance build, use `scripts/docker-build.sh --performance`.
+It uses Chromium PGO, ThinLTO cache, jumbo compilation, hardware VA-API and a
+stripped symbol table. It targets x86_64; the first build downloads Chromium
+sources and can require substantial disk space and time.
 
 The `scripts/docker-build.sh` script will:
 1. Create a Docker image of a Debian-based building environment with all
