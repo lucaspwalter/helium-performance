@@ -8,6 +8,13 @@ while [ $# -gt 0 ]; do
     case "$1" in
         -c) clone=true; shift;;
         --pgo) with_pgo=true; shift;;
+        --performance)
+            clone=true
+            with_pgo=true
+            shift;;
+        *)
+            echo "unknown option: $1" >&2
+            exit 2;;
     esac
 done
 
