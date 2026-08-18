@@ -18,12 +18,14 @@ if [ -z "${_use_existing_image:-}" ]; then
     cd "${_base_dir}/docker"
     if docker buildx version >/dev/null 2>&1; then
         docker buildx build --load \
+            --network host \
             -t "${_image}" \
             -f ./build.Dockerfile \
             "${_docker_image_args[@]}" .
     else
         echo "Docker Buildx ausente; usando docker build"
         docker build \
+            --network host \
             -t "${_image}" \
             -f ./build.Dockerfile \
             "${_docker_image_args[@]}" .
@@ -65,7 +67,7 @@ if [ -n "${GITHUB_OUTPUT:-}" ]; then
     _gha_mount=(-v "$GITHUB_OUTPUT:$GITHUB_OUTPUT")
 fi
 
-cd "${_base_dir}" && docker run --rm -i \
+cd "${_base_dir}" && docker run --rm -i --network host \
     -u "${_user_uidgid}" \
     -v "${_base_dir}:/repo" \
     "${_gha_mount[@]}" \
