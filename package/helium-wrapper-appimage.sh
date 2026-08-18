@@ -83,7 +83,8 @@ if needs_apparmor_bootstrap && has_apparmor_prereqs; then
 fi
 
 if [ "${HELIUM_RAM_MODE:-1}" = 1 ]; then
-    set -- --process-per-site --renderer-process-limit=4 "$@"
+    set -- --process-per-site --renderer-process-limit=4 \
+        --disable-background-networking --disable-domain-reliability "$@"
 fi
 
 exec "${HERE}"/opt/helium/helium "$@"

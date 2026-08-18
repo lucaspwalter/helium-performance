@@ -79,7 +79,8 @@ To build the binary, run `scripts/docker-build.sh` from the repo root.
 For the maximum-performance build, use `scripts/docker-build.sh --performance`.
 It uses Chromium PGO, ThinLTO cache, jumbo compilation, hardware VA-API,
 size optimization and a stripped symbol table. The wrapper defaults to a
-lower-RAM renderer policy (`--process-per-site --renderer-process-limit=4`).
+lower-RAM renderer policy (`--process-per-site --renderer-process-limit=4`)
+and disables non-essential background networking by default.
 Background apps/contents stay build-compatible; the wrapper applies the
 lower-RAM renderer policy at runtime while normal tabs, extensions and modern
 websites remain enabled.

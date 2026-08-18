@@ -17,7 +17,8 @@ export LD_LIBRARY_PATH="$HERE:$HERE/lib:$HERE/lib.target${LD_LIBRARY_PATH:+:${LD
 # RAM mode is enabled by default in this fork. Set HELIUM_RAM_MODE=0 to
 # restore Chromium's normal renderer process policy.
 if [ "${HELIUM_RAM_MODE:-1}" = 1 ]; then
-    set -- --process-per-site --renderer-process-limit=4 "$@"
+    set -- --process-per-site --renderer-process-limit=4 \
+        --disable-background-networking --disable-domain-reliability "$@"
 fi
 
 exec "$HERE/helium" "$@"
