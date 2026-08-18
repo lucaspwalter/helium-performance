@@ -77,9 +77,11 @@ licensed under their [BSD 3-Clause license](LICENSE.ungoogled_chromium)).
 To build the binary, run `scripts/docker-build.sh` from the repo root.
 
 For the maximum-performance build, use `scripts/docker-build.sh --performance`.
-It uses Chromium PGO, ThinLTO cache, jumbo compilation, hardware VA-API and a
-stripped symbol table. It targets x86_64; the first build downloads Chromium
-sources and can require substantial disk space and time.
+It uses Chromium PGO, ThinLTO cache, jumbo compilation, hardware VA-API,
+size optimization and a stripped symbol table. The wrapper defaults to a
+lower-RAM renderer policy (`--process-per-site --renderer-process-limit=4`).
+Set `HELIUM_RAM_MODE=0` to disable it. It targets x86_64; the first build
+downloads Chromium sources and can require substantial disk space and time.
 
 The `scripts/docker-build.sh` script will:
 1. Create a Docker image of a Debian-based building environment with all
