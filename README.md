@@ -80,6 +80,8 @@ For the maximum-performance build, use `scripts/docker-build.sh --performance`.
 It uses Chromium PGO, ThinLTO cache, jumbo compilation, hardware VA-API,
 size optimization and a stripped symbol table. The wrapper defaults to a
 lower-RAM renderer policy (`--process-per-site --renderer-process-limit=4`).
+Background apps/contents are compiled out; normal tabs, extensions and modern
+websites remain enabled.
 Set `HELIUM_RAM_MODE=0` to disable it. It targets x86_64; the first build
 downloads Chromium sources and can require substantial disk space and time.
 
