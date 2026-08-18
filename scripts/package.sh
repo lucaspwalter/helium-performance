@@ -58,6 +58,7 @@ for file in $_files; do
 done
 
 cp "$_root_dir/package/helium.desktop" "$_tarball_dir"
+cp "$_root_dir/package/brasilium.png" "$_tarball_dir/brasilium.png"
 cp "$_root_dir/package/apparmor.cfg" "$_tarball_dir"
 cp "$_root_dir/package/helium-wrapper.sh" "$_tarball_dir/helium-wrapper"
 
@@ -98,11 +99,11 @@ cp "$_root_dir/package/helium.desktop" "$_app_dir"
 
 cp "$_root_dir/package/helium-wrapper-appimage.sh" "$_app_dir/AppRun"
 
-for out in "$_app_dir/helium.png" "${_app_dir}/usr/share/icons/hicolor/256x256/apps/helium.png"; do
-    cp "${_app_dir}/opt/helium/product_logo_256.png" "$out"
+for out in "$_app_dir/brasilium.png" "${_app_dir}/usr/share/icons/hicolor/256x256/apps/brasilium.png"; do
+    cp "$_root_dir/package/brasilium.png" "$out"
 done
 
-export APPIMAGETOOL_APP_NAME="Helium"
+export APPIMAGETOOL_APP_NAME="Brasilium"
 export VERSION="$_version"
 
 # check whether CI GPG secrets are available

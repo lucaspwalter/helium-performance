@@ -82,4 +82,8 @@ if needs_apparmor_bootstrap && has_apparmor_prereqs; then
         APPARMOR_BOOTSTRAPPED=1 exec "$APPIMAGE"
 fi
 
-"${HERE}"/opt/helium/helium "$@"
+if [ "${HELIUM_RAM_MODE:-1}" = 1 ]; then
+    set -- --process-per-site --renderer-process-limit=4 "$@"
+fi
+
+exec "${HERE}"/opt/helium/helium "$@"

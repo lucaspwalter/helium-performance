@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Helium
+Name=Brasilium
 
 # For future reference, these translations are available in the Chromium
 # tree at chrome/installer/linux/common/desktop.template.
@@ -114,7 +114,7 @@ Comment[zh_TW]=連線到網際網路
 Exec=helium %U
 StartupNotify=true
 Terminal=false
-Icon=helium
+Icon=brasilium
 Type=Application
 Categories=Network;WebBrowser;
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
