@@ -84,7 +84,9 @@ fi
 
 if [ "${HELIUM_RAM_MODE:-1}" = 1 ]; then
     set -- --process-per-site --renderer-process-limit=4 \
-        --disable-background-networking --disable-domain-reliability "$@"
+        --disable-background-networking --disable-domain-reliability \
+        --disable-breakpad --disable-crash-reporter --no-pings \
+        --disable-default-apps "$@"
 fi
 
 exec "${HERE}"/opt/helium/helium "$@"

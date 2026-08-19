@@ -81,6 +81,9 @@ It uses Chromium PGO, ThinLTO cache, jumbo compilation, hardware VA-API,
 size optimization and a stripped symbol table. The wrapper defaults to a
 lower-RAM renderer policy (`--process-per-site --renderer-process-limit=4`)
 and disables non-essential background networking by default.
+Crash report uploads, hyperlink auditing pings and default apps are also
+disabled in this mode. Set `HELIUM_RAM_MODE=0` to restore normal launcher
+behavior.
 Background apps/contents stay build-compatible; the wrapper applies the
 lower-RAM renderer policy at runtime while normal tabs, extensions and modern
 websites remain enabled.
